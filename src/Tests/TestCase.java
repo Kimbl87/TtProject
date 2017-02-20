@@ -23,7 +23,7 @@ public static String baseUrl;
 @BeforeClass
 public static void createAndStartService() throws IOException {
     service = new ChromeDriverService.Builder()
-       .usingDriverExecutable(new File("C:\\webdeiver\\chromedriver.exe"))
+       .usingDriverExecutable(new File("C:\\webdriver\\chromedriver.exe"))
        .usingAnyFreePort()
        .build();
     service.start();
@@ -38,25 +38,25 @@ public void setUp(){
 
 @Test
 public void simpleTest() {     
-    getUrl(); //1. перейти на сайт http://google.com/ncr
+    getUrl(); //1. ГЇГҐГ°ГҐГ©ГІГЁ Г­Г  Г±Г Г©ГІ http://google.com/ncr
     
     
     
     clearElement("//input[@type='text']");
     sendKeys("//input[@type='text']", "selenium");
-    clickByElement("//button[@name='btnG']");//2. Выполнить поиск по слову "selenium"
-    assertText("//div[1]/div[@class='rc']/.//cite", "www.seleniumhq.org/"); //3. ожидается, что первый результат в выдаче ведет на какую-то страницу сайта seleniumhq.org. Если в начале поисковой выдачи появились какие-то виджеты, то их не учитывать (виджет Википедии, виджет "Top stories" и т.п.)
-    log("Выполнен поиск по слову Selenium, результат поиска ведет на www.seleniumhq.org");
-    clickByElement("//div[@id='hdtb-msb']/.//a[text()='Images']");// 4. перейти на вкладку "Images"
-    log("Перешли на вкладку images");
+    clickByElement("//button[@name='btnG']");//2. Г‚Г»ГЇГ®Г«Г­ГЁГІГј ГЇГ®ГЁГ±ГЄ ГЇГ® Г±Г«Г®ГўГі "selenium"
+    assertText("//div[1]/div[@class='rc']/.//cite", "www.seleniumhq.org/"); //3. Г®Г¦ГЁГ¤Г ГҐГІГ±Гї, Г·ГІГ® ГЇГҐГ°ГўГ»Г© Г°ГҐГ§ГіГ«ГјГІГ ГІ Гў ГўГ»Г¤Г Г·ГҐ ГўГҐГ¤ГҐГІ Г­Г  ГЄГ ГЄГіГѕ-ГІГ® Г±ГІГ°Г Г­ГЁГ¶Гі Г±Г Г©ГІГ  seleniumhq.org. Г…Г±Г«ГЁ Гў Г­Г Г·Г Г«ГҐ ГЇГ®ГЁГ±ГЄГ®ГўГ®Г© ГўГ»Г¤Г Г·ГЁ ГЇГ®ГїГўГЁГ«ГЁГ±Гј ГЄГ ГЄГЁГҐ-ГІГ® ГўГЁГ¤Г¦ГҐГІГ», ГІГ® ГЁГµ Г­ГҐ ГіГ·ГЁГІГ»ГўГ ГІГј (ГўГЁГ¤Г¦ГҐГІ Г‚ГЁГЄГЁГЇГҐГ¤ГЁГЁ, ГўГЁГ¤Г¦ГҐГІ "Top stories" ГЁ ГІ.ГЇ.)
+    log("Г‚Г»ГЇГ®Г«Г­ГҐГ­ ГЇГ®ГЁГ±ГЄ ГЇГ® Г±Г«Г®ГўГі Selenium, Г°ГҐГ§ГіГ«ГјГІГ ГІ ГЇГ®ГЁГ±ГЄГ  ГўГҐГ¤ГҐГІ Г­Г  www.seleniumhq.org");
+    clickByElement("//div[@id='hdtb-msb']/.//a[text()='Images']");// 4. ГЇГҐГ°ГҐГ©ГІГЁ Г­Г  ГўГЄГ«Г Г¤ГЄГі "Images"
+    log("ГЏГҐГ°ГҐГёГ«ГЁ Г­Г  ГўГЄГ«Г Г¤ГЄГі images");
     clickByElement("//*[@id='rg_s']/div[1]/a/img");
     sleep(1);
-    assertText(".//*[@id='irc_cc']/div[2]/div[3]/div[1]/div[1]/div/span[1]/a/span", "www.seleniumhq.org"); //3. ожидается, что первый результат в выдаче ведет на какую-то страницу сайта seleniumhq.org. Если в начале поисковой выдачи появились какие-то виджеты, то их не учитывать (виджет Википедии, виджет "Top stories" и т.п.)    //5. ожидается, что первая картинка в выдаче как-либо относится к сайту seleniumhq.org
-    log("Первая ссылка ведет на seleniumhq.org");
-    clickByElement("//div[@id='hdtb-msb']/.//a[text()='All']");// 6. вернуться на вкладку "All"
-    log("Открыта вкладка all");
+    assertText(".//*[@id='irc_cc']/div[2]/div[3]/div[1]/div[1]/div/span[1]/a/span", "www.seleniumhq.org"); //3. Г®Г¦ГЁГ¤Г ГҐГІГ±Гї, Г·ГІГ® ГЇГҐГ°ГўГ»Г© Г°ГҐГ§ГіГ«ГјГІГ ГІ Гў ГўГ»Г¤Г Г·ГҐ ГўГҐГ¤ГҐГІ Г­Г  ГЄГ ГЄГіГѕ-ГІГ® Г±ГІГ°Г Г­ГЁГ¶Гі Г±Г Г©ГІГ  seleniumhq.org. Г…Г±Г«ГЁ Гў Г­Г Г·Г Г«ГҐ ГЇГ®ГЁГ±ГЄГ®ГўГ®Г© ГўГ»Г¤Г Г·ГЁ ГЇГ®ГїГўГЁГ«ГЁГ±Гј ГЄГ ГЄГЁГҐ-ГІГ® ГўГЁГ¤Г¦ГҐГІГ», ГІГ® ГЁГµ Г­ГҐ ГіГ·ГЁГІГ»ГўГ ГІГј (ГўГЁГ¤Г¦ГҐГІ Г‚ГЁГЄГЁГЇГҐГ¤ГЁГЁ, ГўГЁГ¤Г¦ГҐГІ "Top stories" ГЁ ГІ.ГЇ.)    //5. Г®Г¦ГЁГ¤Г ГҐГІГ±Гї, Г·ГІГ® ГЇГҐГ°ГўГ Гї ГЄГ Г°ГІГЁГ­ГЄГ  Гў ГўГ»Г¤Г Г·ГҐ ГЄГ ГЄ-Г«ГЁГЎГ® Г®ГІГ­Г®Г±ГЁГІГ±Гї ГЄ Г±Г Г©ГІГі seleniumhq.org
+    log("ГЏГҐГ°ГўГ Гї Г±Г±Г»Г«ГЄГ  ГўГҐГ¤ГҐГІ Г­Г  seleniumhq.org");
+    clickByElement("//div[@id='hdtb-msb']/.//a[text()='All']");// 6. ГўГҐГ°Г­ГіГІГјГ±Гї Г­Г  ГўГЄГ«Г Г¤ГЄГі "All"
+    log("ГЋГІГЄГ°Г»ГІГ  ГўГЄГ«Г Г¤ГЄГ  all");
     assertText("//div[1]/div[@class='rc']/.//cite", "www.seleniumhq.org/"); 
-    log("Первая ссылка ведет на www.seleniumhq.org");//7. ожидается, что первый результат по-прежнему ведет на ту же страницу, что и на шаге 3.
+    log("ГЏГҐГ°ГўГ Гї Г±Г±Г»Г«ГЄГ  ГўГҐГ¤ГҐГІ Г­Г  www.seleniumhq.org");//7. Г®Г¦ГЁГ¤Г ГҐГІГ±Гї, Г·ГІГ® ГЇГҐГ°ГўГ»Г© Г°ГҐГ§ГіГ«ГјГІГ ГІ ГЇГ®-ГЇГ°ГҐГ¦Г­ГҐГ¬Гі ГўГҐГ¤ГҐГІ Г­Г  ГІГі Г¦ГҐ Г±ГІГ°Г Г­ГЁГ¶Гі, Г·ГІГ® ГЁ Г­Г  ГёГ ГЈГҐ 3.
 
 }
 
